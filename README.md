@@ -6,3 +6,6 @@ _Pyglot https://github.com/artc95/Pyglot_
 - PyWebIO with Flask Webapp
 - Docker Containerization with GCP (Container Registry, Cloud Run)
 
+_Bullsheet https://github.com/artc95/Bullsheet_
+- Python, SQL on Google Cloud Platform (Compute Engine, Cloud Storage, Cloud Functions, BigQuery) and Google Data Studio
+
