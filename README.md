@@ -1,2 +1,2 @@
 # GrandRepo
-Centralized documentation for reference.
+Directory of projects and their documentation.
