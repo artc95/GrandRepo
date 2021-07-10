@@ -9,12 +9,12 @@ _Crypti_
   - **kill 1234** = Replace 1234 with Process ID to kill process, or **kill -9 1234** to force kill process (https://stackoverflow.com/questions/17385794/how-to-get-the-process-id-to-kill-a-nohup-process)
 
 _Pyglot https://github.com/artc95/Pyglot_
-- Setup Python Virtual Environment in VSCode (https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+- Setup **Python Virtual Environment** in VSCode (https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
   - (In CLI or code editor e.g. Visual Studio Code), go to (i.e. cd for Windows) project directory, run "py -m venv env"
   - In project directory, run ".\env\Scripts\activate"
   - Install modules using pip/pip3
   - Run "deactivate" to leave virtual environment
-- Use GCP in Python Virtual Environment
+- Use **GCP in Python Virtual Environment**
   - Ensure virtual environment is activated with (env) at the start of command line
   - Install necessary GCP modules (e.g. run "pip install --upgrade google-cloud-language")
   - Before running .py scripts:
