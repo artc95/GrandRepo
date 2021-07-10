@@ -17,3 +17,10 @@ _Bullsheet https://github.com/artc95/Bullsheet_
 - Python, SQL on Google Cloud Platform (Compute Engine, Cloud Storage, Cloud Functions, BigQuery) and Google Data Studio
 - (Legacy) Dash webapp hosted on Heroku
 
+_SpotifyETL_WannaDE https://github.com/artc95/SpotifyETL_WannaDE_
+- Link VSCode to Github Repo
+  - Create repository in Github
+  - Clone Github repository in VSCode using Github respository URL
+  - After making changes in VSCode, Stage Changes, Commit (with message), then Push  
+
+
