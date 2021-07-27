@@ -10,6 +10,7 @@ _Sentimental_
 - Using **.gitignore** to ignore changes (https://www.freecodecamp.org/news/gitignore-what-is-it-and-how-to-add-to-repo/)
 - Use **Apache Beam for GCP Dataflow** (https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python#cloud-console)
   - In Python virtual environment, run "pip install wheel" then "pip install apache-beam[gcp]" which takes awhile
+- Use **Twitter + GCP + Telegram** (for tweets with keyword+sentiment analysis+send updates) (https://github.com/artc95/Sentimental/blob/master/sample.py)
 
 _Pyglot https://github.com/artc95/Pyglot_
 - Setup **Python Virtual Environment** in VSCode (https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
