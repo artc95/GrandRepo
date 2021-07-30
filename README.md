@@ -1,6 +1,9 @@
 # GrandRepo
 Directory of projects and their documentation.
 
+_General_
+- Uninstall all local Python packages (https://www.codegrepper.com/code-examples/shell/delete+all+python+packages , by Nervous Nightingale)
+
 _Sentimental_
 - Linux "nohup" command (i.e. "no hang up" executes command that does not stop when user exits)
   - **nohup python3 path/to/file.py &** = Run a python file which does not stop even when user logs out (https://stackoverflow.com/questions/47455680/running-a-python-script-on-google-cloud-compute-engine)
