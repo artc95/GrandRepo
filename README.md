@@ -22,7 +22,7 @@ _Pyglot https://github.com/artc95/Pyglot_
   - Ensure virtual environment is activated with (env) at the start of command line
   - Install necessary GCP modules (e.g. run "pip install --upgrade google-cloud-language")
   - Before running .py scripts:
-    - Use virtual environment's interpreter (in Visual Studio Code, interpreter option is at the bottom)
+    - Use virtual environment's interpreter (in Visual Studio Code, interpreter option is at the bottom OR enter path to virtual env's python.exe)
     - Set Google Application Credentials e.g. run "set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\artc\Desktop\xxx.json" (instructions on creating Service Account, getting account key as .json file and setting Credentials as .json file https://cloud.google.com/docs/authentication/getting-started)
 - PyWebIO with Flask webapp
 - Docker Containerization with GCP (Container Registry, Cloud Run)
