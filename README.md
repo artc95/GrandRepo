@@ -11,8 +11,14 @@ _Sentimental_
   - **ps -ef|grep python3** = Get Process ID(s) of python3 processes (https://stackoverflow.com/questions/17385794/how-to-get-the-process-id-to-kill-a-nohup-process)
   - **kill 1234** = Replace 1234 with Process ID to kill process, or **kill -9 1234** to force kill process (https://stackoverflow.com/questions/17385794/how-to-get-the-process-id-to-kill-a-nohup-process)
 - **.gitignore** to ignore changes (https://www.freecodecamp.org/news/gitignore-what-is-it-and-how-to-add-to-repo/)
-- **Apache Beam for GCP Dataflow** (https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python#cloud-console)
-  - In Python virtual environment, run "pip install wheel" then "pip install apache-beam[gcp]" which takes awhile
+- GCP
+  - Apache Beam for **Dataflow** (https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python#cloud-console)
+    - In Python virtual environment, run "pip install wheel" then "pip install apache-beam[gcp]" which takes awhile
+  - **Pub/Sub**
+    - Sample publish (pub.py) and subscribe (sub.py) code at https://github.com/googleapis/python-pubsub/tree/master/samples/snippets/quickstart
+    - Publish using Cloud Functions (https://cloud.google.com/functions/docs/calling/pubsub)
+  - **Functions**
+    - To test Functions - open Cloud Shell, run "gcloud functions call <function>" e.g. (gcloud functions call stream_prices)  
 - **Twitter + GCP + Telegram** (for tweets with keyword+sentiment analysis+send updates) (https://github.com/artc95/Sentimental/blob/master/Twitter_GCP_Telegram.py)
 - **BeautifulSoup** to parse webscraped HTML (https://realpython.com/beautiful-soup-web-scraper-python/)
 
