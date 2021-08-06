@@ -18,7 +18,6 @@ _Sentimental_
     - Sample publish (pub.py) and subscribe (sub.py) code at https://github.com/googleapis/python-pubsub/tree/master/samples/snippets/quickstart
     - Publish using Cloud Functions (https://cloud.google.com/functions/docs/calling/pubsub), sample code:
     def stream_prices_to_pubsub(request):
-      # publish to pubsub
       publisher = pubsub_v1.PublisherClient()
     
       project_id = "sentimental-319904"
@@ -30,7 +29,6 @@ _Sentimental_
       })
       message_bytes = message_json.encode('utf-8')
       
-      # Publishes a message
       try:
         publish_future = publisher.publish(topic_path, data=message_bytes)
         publish_future.result()  # Verify the publish succeeded
