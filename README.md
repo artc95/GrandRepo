@@ -18,6 +18,11 @@ _Sentimental_
     - Sample publish (pub.py) and subscribe (sub.py) code at https://github.com/googleapis/python-pubsub/tree/master/samples/snippets/quickstart
     - Publish using Cloud Functions (https://cloud.google.com/functions/docs/calling/pubsub), working code:
 ```python
+import requests
+from google.cloud import pubsub_v1
+import base64
+import json
+
 def stream_prices_to_pubsub(request):
   publisher = pubsub_v1.PublisherClient()
   
