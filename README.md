@@ -18,9 +18,11 @@ _Sentimental_
     - Sample publish (pub.py) and subscribe (sub.py) code at https://github.com/googleapis/python-pubsub/tree/master/samples/snippets/quickstart
     - Publish using Cloud Functions (https://cloud.google.com/functions/docs/calling/pubsub)
   - **Functions**
-    - To test Functions - open Cloud Shell, run "gcloud functions call <function>" e.g. (gcloud functions call stream_prices)  
+    - To test Functions - open Cloud Shell, run "gcloud functions call (FUNCTION)" e.g. (gcloud functions call stream_prices)  
 - **Twitter + GCP + Telegram** (for tweets with keyword+sentiment analysis+send updates) (https://github.com/artc95/Sentimental/blob/master/Twitter_GCP_Telegram.py)
 - **BeautifulSoup** to parse webscraped HTML (https://realpython.com/beautiful-soup-web-scraper-python/)
+- **JSON in Python** (https://www.programiz.com/python-programming/json)
+  - json.loads() converts JSON string to Python dict, or json.load() to read JSON file into Python dict ; json.dumps() converts Python dict to JSON object, or json.dump() to write to file 
 
 _Pyglot https://github.com/artc95/Pyglot_
 - Setup **Python Virtual Environment** in VSCode (https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
