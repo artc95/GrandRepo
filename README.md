@@ -16,7 +16,29 @@ _Sentimental_
     - In Python virtual environment, run "pip install wheel" then "pip install apache-beam[gcp]" which takes awhile
   - **Pub/Sub**
     - Sample publish (pub.py) and subscribe (sub.py) code at https://github.com/googleapis/python-pubsub/tree/master/samples/snippets/quickstart
-    - Publish using Cloud Functions (https://cloud.google.com/functions/docs/calling/pubsub)
+    - Publish using Cloud Functions (https://cloud.google.com/functions/docs/calling/pubsub), sample code:
+    def stream_prices_to_pubsub(request):
+      # publish to pubsub
+      publisher = pubsub_v1.PublisherClient()
+    
+      project_id = "sentimental-319904"
+      topic_id = "prices_stream"
+      topic_path = publisher.topic_path(project_id,topic_id)
+      
+      message_json = json.dumps({
+        "data": {"message": "prices!"},
+      })
+      message_bytes = message_json.encode('utf-8')
+      
+      # Publishes a message
+      try:
+        publish_future = publisher.publish(topic_path, data=message_bytes)
+        publish_future.result()  # Verify the publish succeeded
+        return 'Message published.'
+      except Exception as e:
+        print(e)
+        return (e, 500)
+      
   - **Functions**
     - To test Functions - open Cloud Shell, run "gcloud functions call (FUNCTION)" e.g. (gcloud functions call stream_prices)  
 - **Twitter + GCP + Telegram** (for tweets with keyword+sentiment analysis+send updates) (https://github.com/artc95/Sentimental/blob/master/Twitter_GCP_Telegram.py)
