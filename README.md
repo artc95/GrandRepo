@@ -17,7 +17,8 @@ _Sentimental_
   - **Pub/Sub**
     - Sample publish (pub.py) and subscribe (sub.py) code at https://github.com/googleapis/python-pubsub/tree/master/samples/snippets/quickstart
     - Publish using Cloud Functions (https://cloud.google.com/functions/docs/calling/pubsub), sample code:
-    def stream_prices_to_pubsub(request):
+```python
+def stream_prices_to_pubsub(request):
       publisher = pubsub_v1.PublisherClient()
     
       project_id = "sentimental-319904"
@@ -36,6 +37,7 @@ _Sentimental_
       except Exception as e:
         print(e)
         return (e, 500)
+ ```
       
   - **Functions**
     - To test Functions - open Cloud Shell, run "gcloud functions call (FUNCTION)" e.g. (gcloud functions call stream_prices)  
