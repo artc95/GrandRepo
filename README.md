@@ -51,7 +51,9 @@ def stream_prices_to_pubsub(request):
       
   - **Functions**
     - To test Functions - open Cloud Shell, run "gcloud functions call (FUNCTION)" e.g. (gcloud functions call stream_prices)
-    - Only can write files in "/tmp/" directory (https://towardsdatascience.com/how-to-schedule-a-serverless-google-cloud-function-to-run-periodically-249acf3a652e)  
+    - Only can write files in "/tmp/" directory (https://towardsdatascience.com/how-to-schedule-a-serverless-google-cloud-function-to-run-periodically-249acf3a652e)
+  - **Scheduler**
+    - To trigger Cloud Function, choose "Target type" as "HTTP", "URL" as Cloud Function's HTTP Trigger URL (e.g. https://us-central1-sentimental-319904.cloudfunctions.net/test_scheduler), "HTTP Method" as "POST", "Auth Header" as "Add OIDC token", "Service account" use service account with Owner or invoke Cloud Function permissions (e.g. senti-482@sentimental-319904.iam.gserviceaccount.com) (https://cloud.google.com/community/tutorials/using-scheduler-invoke-private-functions-oidc)
 - **Twitter + GCP + Telegram** (for tweets with keyword+sentiment analysis+send updates) (https://github.com/artc95/Sentimental/blob/master/Twitter_GCP_Telegram.py)
 - **BeautifulSoup** to parse webscraped HTML (https://realpython.com/beautiful-soup-web-scraper-python/)
 - **JSON in Python** (https://www.programiz.com/python-programming/json)
