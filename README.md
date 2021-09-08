@@ -1,6 +1,23 @@
 # GrandRepo
 Directory of projects and their documentation.
 
+_Matplotlib ; Seaborn_
+- Matplotlib 
+    - Line graph with axis labels, title (add # %% to indicate Jupyter notebook cell for interactive plt.show()):
+```python
+# %%
+x = range(1,50)
+y = [value*3 for value in x]
+
+plt.plot(x,y)
+plt.xlabel("x-axis")
+plt.ylabel("y-axis")
+plt.title("Draw a line.")
+plt.show()
+```
+- Seaborn
+  - Introduction https://seaborn.pydata.org/introduction.html
+
 _General_
 - Uninstall all local Python packages (https://www.codegrepper.com/code-examples/shell/delete+all+python+packages , by Nervous Nightingale)
 
