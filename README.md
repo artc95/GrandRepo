@@ -5,7 +5,7 @@ _General / Python_
 - **Visualizations**:
   - Matplotlib 
       - Line graph with axis labels, title (add # %% to indicate Jupyter notebook cell for interactive plt.show()):
-```python
+  ```python
 # %%
 x = range(1,50)
 y = [value*3 for value in x]
@@ -15,7 +15,7 @@ plt.xlabel("x-axis")
 plt.ylabel("y-axis")
 plt.title("Draw a line.")
 plt.show()
-```
+  ```
   - Seaborn
     - Introduction https://seaborn.pydata.org/introduction.html
 - **Twitter + GCP + Telegram** (for tweets with keyword+sentiment analysis+send updates) (https://github.com/artc95/Sentimental/blob/master/Twitter_GCP_Telegram.py)
