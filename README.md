@@ -1,7 +1,7 @@
 # GrandRepo
-Directory of projects and their documentation.
+Documentation for reference.
 
-_Matplotlib ; Seaborn_
+_Python Visualizations - Matplotlib ; Seaborn_
 - Matplotlib 
     - Line graph with axis labels, title (add # %% to indicate Jupyter notebook cell for interactive plt.show()):
 ```python
@@ -18,7 +18,7 @@ plt.show()
 - Seaborn
   - Introduction https://seaborn.pydata.org/introduction.html
 
-_General_
+_Miscellaneous_
 - Uninstall all local Python packages (https://www.codegrepper.com/code-examples/shell/delete+all+python+packages , by Nervous Nightingale)
 
 _Sentimental_
@@ -91,14 +91,17 @@ _Pyglot https://github.com/artc95/Pyglot_
 - PyWebIO with Flask webapp
 - Docker Containerization with GCP (Container Registry, Cloud Run)
 
-_Bullsheet https://github.com/artc95/Bullsheet_
-- Python, SQL on Google Cloud Platform (Compute Engine, Cloud Storage, Cloud Functions, BigQuery) and Google Data Studio
-- (Legacy) Dash webapp hosted on Heroku
+_Google Cloud Platform_
+- Python, SQL on Google Cloud Platform (Compute Engine, Cloud Storage, Cloud Functions, BigQuery) and Google Data Studio (used in https://github.com/artc95/Bullsheet)
 
-_SpotifyETL_WannaDE https://github.com/artc95/SpotifyETL_WannaDE_
-- Link VSCode to Github Repo
+_Heroku_
+- Host Dash webapp (used in https://github.com/artc95/Bullsheet)
+
+_VSCode_
+- Link VSCode to **Github Repo** (used in https://github.com/artc95/SpotifyETL_WannaDE_)
   - Create repository in Github
   - Clone Github repository in VSCode using Github respository URL
-  - After making changes in VSCode, Stage Changes, Commit (with message), then Push  
+  - After making changes in VSCode, Stage Changes, Commit (with message), then Push
+
 
 
