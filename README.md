@@ -69,6 +69,14 @@ def stream_prices_to_pubsub(request):
   - To trigger Cloud Function, choose "Target type" as "HTTP", "URL" as Cloud Function's HTTP Trigger URL (e.g. https://us-central1-sentimental-319904.cloudfunctions.net/test_scheduler), "HTTP Method" as "POST", "Auth Header" as "Add OIDC token", "Service account" use service account with Owner or invoke Cloud Function permissions (e.g. senti-482@sentimental-319904.iam.gserviceaccount.com) (https://cloud.google.com/community/tutorials/using-scheduler-invoke-private-functions-oidc)
 - Python, SQL on Google Cloud Platform (Compute Engine, Cloud Storage, Cloud Functions, BigQuery) and Google Data Studio (used in https://github.com/artc95/Bullsheet)
 
+_SQL (Structured Query Language)
+- Basics:
+```SQL
+
+```
+- Practice with feedback https://sqlzoo.net/wiki/SQL_Tutorial ; Professional book https://goalkicker.com/SQLBook/
+- Categories of Commands i.e. Data _ Language - Definition (DDL), Query (DQL), Manipulation (DML), Control (DCL) https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/
+
 _Linux_
 - Linux "nohup" command (i.e. "no hang up" executes command that does not stop when user exits)
   - **nohup python3 path/to/file.py &** = Run a python file which does not stop even when user logs out (https://stackoverflow.com/questions/47455680/running-a-python-script-on-google-cloud-compute-engine)
