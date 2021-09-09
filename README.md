@@ -2,7 +2,7 @@
 Documentation for reference.
 
 _General / Python_
-- Visualizations:
+- **Visualizations**:
   - Matplotlib 
       - Line graph with axis labels, title (add # %% to indicate Jupyter notebook cell for interactive plt.show()):
 ```python
