@@ -16,8 +16,8 @@ plt.ylabel("y-axis")
 plt.title("Draw a line.")
 plt.show()
 ```
-    - Seaborn
-      - Introduction https://seaborn.pydata.org/introduction.html
+  - Seaborn
+    - Introduction https://seaborn.pydata.org/introduction.html
 - **Twitter + GCP + Telegram** (for tweets with keyword+sentiment analysis+send updates) (https://github.com/artc95/Sentimental/blob/master/Twitter_GCP_Telegram.py)
 - **BeautifulSoup** to parse webscraped HTML (https://realpython.com/beautiful-soup-web-scraper-python/)
 - **JSON in Python** (https://www.programiz.com/python-programming/json)
