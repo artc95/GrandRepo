@@ -72,7 +72,39 @@ def stream_prices_to_pubsub(request):
 _SQL (Structured Query Language)
 - Basics:
 ```SQL
+SELECT [column names] 
+FROM [table name] JOIN [table name] ON [matching keys]
+WHERE [column name] [logical operator] [reference] 
+GROUP BY [column names]
+```
+```SQL
+e.g. wildcards *, %
+SELECT matchid, player FROM goal
+WHERE player LIKE 'Mario%'
 
+e.g. SELECT DISTINCT, multiple conditions
+SELECT DISTINCT player
+  FROM game JOIN goal ON matchid = id 
+    WHERE (team1='GER' OR team2='GER') AND (goal.teamid != 'GER')
+
+e.g. COUNT(), GROUP BY() https://sqlzoo.net/wiki/The_JOIN_operation 11.
+SELECT matchid, mdate, COUNT(goal.matchid) AS goals_scored
+  FROM game JOIN goal ON id = matchid 
+ WHERE (team1 = 'POL' OR team2 = 'POL')
+GROUP BY game.id, game.mdate, goal.matchid
+
+e.g. SUM(), CASE WHEN https://sqlzoo.net/wiki/The_JOIN_operation 13.
+SELECT mdate,team1,
+  SUM(CASE 
+    WHEN teamid=team1 THEN 1 
+    ELSE 0 END) AS score1,
+    team2,
+  SUM(CASE 
+    WHEN teamid=team2 THEN 1 
+    ELSE 0 END) AS score2
+  FROM game JOIN goal ON matchid = id
+GROUP BY mdate, team1, team2
+ORDER BY mdate
 ```
 - Practice with feedback https://sqlzoo.net/wiki/SQL_Tutorial ; Professional book https://goalkicker.com/SQLBook/
 - Categories of Commands i.e. Data _ Language - Definition (DDL), Query (DQL), Manipulation (DML), Control (DCL) https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/
