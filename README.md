@@ -135,8 +135,8 @@ _VSCode_
   - Before running .py scripts:
     - Use virtual environment's interpreter (in Visual Studio Code, interpreter option is at the bottom OR enter path to virtual env's python.exe)
     - Set Google Application Credentials (instructions on creating Service Account, getting account key as .json file and setting Credentials as .json file https://cloud.google.com/docs/authentication/getting-started)
-      - Powershell, run "$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\artc\Desktop\...\xxx.json" 
-      - Command Prompt, run "set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\artc\Desktop\...\xxx.json" 
+      - Powershell, run '$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\artc\Desktop\...\xxx.json"'
+      - Command Prompt, run 'set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\artc\Desktop\...\xxx.json' 
 - Link VSCode to **Github Repo** (used in https://github.com/artc95/SpotifyETL_WannaDE_)
   - Create repository in Github
   - Clone Github repository in VSCode using Github respository URL
