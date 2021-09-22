@@ -142,5 +142,7 @@ _VSCode_
   - Clone Github repository in VSCode using Github respository URL
   - After making changes in VSCode, Stage Changes, Commit (with message), then Push
 
-
-
+_Git_
+- **Deconflict changes in master and another branch**
+  - Checkout master branch, pull it for latest changes
+  - Go back to own branch, then select master branch and select "Merge selected into current", then "Choose yours" when merging to only keep your own changes, then Push from own branch  
