@@ -142,6 +142,28 @@ _VSCode_
   - Clone Github repository in VSCode using Github respository URL
   - After making changes in VSCode, Stage Changes, Commit (with message), then Push
 
+_Github Actions_
+- **Basic Workflow** (used in https://github.com/artc95/Sentimental)
+  - Ensure Personal Access Token has "workflow" scope to allow update of workflow code (Settings > Developer Settings > Personal access tokens > Select the token, then check "workflow" scope)
+  - In project directory, create a directory ".github/workflows" to store .yml files
+  - Basic workflow skeleton (in a .yml file):
+```yml
+name: Test Cloud Functions
+on:
+  push: 
+    branches: 
+      - master
+
+jobs:
+  Cloud_Functions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository # must checkout!
+        uses: actions/checkout@v2
+      - name: Check Github Action works
+        run: echo You pushed!
+```
+
 _Git_
 - **Deconflict changes in master and another branch**
   - Checkout master branch, pull it for latest changes
