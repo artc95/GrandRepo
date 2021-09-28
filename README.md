@@ -148,6 +148,23 @@ _Github Actions_
   - In project directory, create a directory ".github/workflows" to store .yml files
   - Basic workflow skeleton (in a .yml file):
 ```yml
+name: Test Github Actions
+on:
+  push: 
+    branches: 
+      - master
+
+jobs:
+  test_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository # must checkout!
+        uses: actions/checkout@v2
+      - name: Check Github Action works
+        run: echo You pushed!
+```
+  - Deploy and Run GCP Cloud Function (deploy-cloud-functions https://github.com/google-github-actions/deploy-cloud-functions and specifying source_dir https://github.com/google-github-actions/deploy-cloud-functions/issues/37 ; setup-gcloud and use GCP CLI https://github.com/google-github-actions/setup-gcloud#example-workflows) :
+```yml
 name: Test Cloud Functions
 on:
   push: 
@@ -160,10 +177,29 @@ jobs:
     steps:
       - name: Checkout Repository # must checkout!
         uses: actions/checkout@v2
-      - name: Check Github Action works
-        run: echo You pushed!
+
+      - name: Setup GCP SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: "sentimental-323305"
+          service_account_key: ${{ secrets.SENTIMENTAL323305JSON }}
+          export_default_credentials: true
+
+      - name: Deploy Cloud Function
+        uses: google-github-actions/deploy-cloud-functions@main
+        with:
+          name: candle_stream_minutely
+          runtime: python39
+          entry_point: main
+          # credentials: ${{ secrets.SENTIMENTAL323305JSON }} - set in "Setup GCP SDK"
+          source_dir: CloudFunctions/candle_stream_minutely
+          # project_id: "sentimental-323305" - set in "Setup GCP SDK"
+
+      - name: Run Cloud Function
+        run: gcloud functions call candle_stream_minutely
 ```
-  - In-depth: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions ; github.com/datarootsio/rootsacademy-pyspark-101-ci/blob/arthur
+  - Documentation and other sample .ymls: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions ; github.com/datarootsio/rootsacademy-pyspark-101-ci/blob/arthur
+  - Billing https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
 
 _Git_
 - **Deconflict changes in master and another branch**
