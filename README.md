@@ -163,6 +163,7 @@ jobs:
       - name: Check Github Action works
         run: echo You pushed!
 ```
+  - In-depth: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions ; github.com/datarootsio/rootsacademy-pyspark-101-ci/blob/arthur
 
 _Git_
 - **Deconflict changes in master and another branch**
