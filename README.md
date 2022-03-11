@@ -204,4 +204,9 @@ jobs:
 _Git_
 - **Deconflict changes in master and another branch**
   - Checkout master branch, pull it for latest changes
-  - Go back to own branch, then select master branch and select "Merge selected into current", then "Choose yours" when merging to only keep your own changes, then Push from own branch  
+  - Go back to own branch, then select master branch and select "Merge selected into current", then "Choose yours" when merging to only keep your own changes, then Push from own branch
+
+_Github_
+- **Clone repositories**
+  - On the repo's github page, in the "Code" dropdown, copy and paste the Github CLI command, e.g. "gh repo clone datarootsio/ai-song-contest"
+  - Run this gh command in the directory you want to clone in, e.g. in Windows Powershell C:\Users\Arthur\Desktop, run "gh repo clone datarootsio/ai-song-contest"
