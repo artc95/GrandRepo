@@ -210,3 +210,8 @@ _Github_
 - **Clone repositories**
   - On the repo's github page, in the "Code" dropdown, copy and paste the Github CLI command, e.g. "gh repo clone datarootsio/ai-song-contest"
   - Run this gh command in the directory you want to clone in, e.g. in Windows Powershell C:\Users\Arthur\Desktop, run "gh repo clone datarootsio/ai-song-contest"
+
+_Jupyter Notebook_
+- **Using Virtual Environment as Kernel**
+  - i.e. isolated environment with specific packages/dependecies for a notebook
+  - install, use, uninstall tutorial https://www.geeksforgeeks.org/using-jupyter-notebook-in-virtual-environment/
