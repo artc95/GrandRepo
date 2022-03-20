@@ -228,4 +228,4 @@ _Magenta (in Ubuntu)_
   - (in magenta environment) conda install ipykernel
   - (still in magenta environment) pip install magenta
   - (still in magenta environment) pip install pyfluidsynth pretty_midi (basically follow dependency installation in Hello Magenta.ipynb https://colab.research.google.com/notebooks/magenta/hello_magenta/hello_magenta.ipynb)
-(then launch jupyter notebook from base and you can see conda env: magenta)
+(then run "conda deactivate" to return to base environment, launch "jupyter notebook" and use conda env: magenta)
