@@ -229,3 +229,6 @@ _Magenta (in Ubuntu)_
   - (still in magenta environment) pip install magenta
   - (still in magenta environment) pip install pyfluidsynth pretty_midi (basically follow dependency installation in Hello Magenta.ipynb https://colab.research.google.com/notebooks/magenta/hello_magenta/hello_magenta.ipynb)
 (then run "conda deactivate" to return to base environment, launch "jupyter notebook" and use conda env: magenta)
+
+- **sudo install fluidsynth** to play magenta note_sequences in Jupyter notebook
+  - (as root user) sudo apt-get install fluidsynth (https://github.com/FluidSynth/fluidsynth/wiki/Download)
