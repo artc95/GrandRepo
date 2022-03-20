@@ -232,3 +232,4 @@ _Magenta (in Ubuntu)_
 
 - **sudo install fluidsynth** to play magenta note_sequences in Jupyter notebook
   - (as root user) sudo apt-get install fluidsynth (https://github.com/FluidSynth/fluidsynth/wiki/Download)
+(extra: how to use fluidsynth in Windows: https://ksvi.mff.cuni.cz/~dingle/2019/prog_1/python_music.html)
