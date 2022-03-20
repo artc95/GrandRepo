@@ -215,3 +215,17 @@ _Jupyter Notebook_
 - **Using Virtual Environment as Kernel**
   - i.e. isolated environment with specific packages/dependecies for a notebook
   - install, use, uninstall tutorial https://www.geeksforgeeks.org/using-jupyter-notebook-in-virtual-environment/
+
+_Magenta (in Ubuntu)_
+- **Install conda env: magenta** (https://github.com/magenta/magenta > under Automated Install (w/ Anaconda)
+  - (may need to install conda or miniconda first)
+  - curl https://raw.githubusercontent.com/tensorflow/magenta/main/magenta/tools/magenta-install.sh > /tmp/magenta-install.sh
+  - bash /tmp/magenta-install.sh
+
+- **Install nb_conda_kernels to show other environment kernels in Jupyter notebook** (https://towardsdatascience.com/get-your-conda-environment-to-show-in-jupyter-notebooks-the-easy-way-17010b76e874)
+  - (in base environment) conda install nb_conda_kernels
+  - (to enter magenta environment) conda activate magenta
+  - (in magenta environment) conda install ipykernel
+  - (still in magenta environment) pip install magenta
+  - (still in magenta environment) pip install pyfluidsynth pretty_midi (basically follow dependency installation in Hello Magenta.ipynb https://colab.research.google.com/notebooks/magenta/hello_magenta/hello_magenta.ipynb)
+(then launch jupyter notebook from base and you can see conda env: magenta)
