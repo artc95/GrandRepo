@@ -198,6 +198,25 @@ jobs:
       - name: Run Cloud Function
         run: gcloud functions call candle_stream_minutely
 ```
+  - Deploy and Run AWS Lambda Function (sample in https://github.com/artc95/Sentimental/tree/master/.github/workflows ; in AWS, create Policy with roles shown below in JSON, attach it to an IAM User, then store AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as Github Actions secrets)
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "iam:ListRoles",
+                "lambda:UpdateFunctionCode",
+                "lambda:CreateFunction",
+                "lambda:UpdateFunctionConfiguration"
+            ],
+            "Resource": "arn:aws:lambda:eu-west-2:109746771938:function:sentimental"
+        }
+    ]
+}
+```
   - Documentation and other sample .ymls: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions ; github.com/datarootsio/rootsacademy-pyspark-101-ci/blob/arthur
   - Billing https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
 
