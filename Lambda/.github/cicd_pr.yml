@@ -1,0 +1,49 @@
+name: Lambda CI/CD
+on:
+  pull_request:
+    branches:
+      - Lambda/*
+  push:
+    branches:
+      - Lambda/*
+
+jobs:
+  pytest_docker_ecr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository # must checkout!
+        uses: actions/checkout@v3
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+      - name: Change directory, Build environment
+        run: |
+          cd Lambda
+          pip install --no-cache-dir -r requirements.txt
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY_SENTIMENTAL_GITHUBACTIONS_UPLOADECR_UPDATELAMBDA }}
+          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY_SENTIMENTAL_GITHUBACTIONS_UPLOADECR_UPDATELAMBDA }}
+          aws-region: eu-west-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, Tag, Push Docker image to Amazon ECR
+        id: build-push-ecr
+        env:
+          ecr_registry: ${{ steps.login-ecr.outputs.registry }}
+          ecr_repository: sentimental
+          image_tag: ${{ github.sha }}
+        run: |
+          # Build a docker container and push it to ECR
+          cd Lambda # if Dockerfile nested in another directory
+          echo "$ecr_registry"
+          docker build -t $ecr_registry/$ecr_repository:$image_tag .
+          echo "Pushing image to ECR..."
+          docker push $ecr_registry/$ecr_repository:$image_tag
+          # if push keep retrying and fails, check IAM Policy https://github.com/aws-actions/amazon-ecr-login#docker-credentials
+          echo "image=$ecr_registry/$ecr_repository:$image_tag" >> "$GITHUB_OUTPUT"
