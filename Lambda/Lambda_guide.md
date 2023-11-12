@@ -1,5 +1,5 @@
 # Lambda - template
-purpose: Lambda receives Telegram message from chat, then replies "oke".
+purpose: Lambda receives Telegram message from chat, then replies with same message.
 reference: https://docs.aws.amazon.com/lambda/latest/dg/python-image.html#python-image-instructions
 
 related projects: Sentimental, snelbestel
@@ -62,10 +62,13 @@ related projects: Sentimental, snelbestel
   - add secrets in Github repo under "Settings" > Security > "Secrets and variables"
 
 ## Dockerfile
-- create
-- push cicd_pr.yml, and Dockerfile etc. to create intial ECR image, to create Lambda (which needs Container image)
+- create it!
+- commit and push to Github repo: cicd_pr.yml, and Dockerfile etc. to create intial ECR image, to create Lambda (which needs Container image)
 
-## AWS >>> Lambda
+## Telegram
+- create bot, get token and check_id etc., see https://core.telegram.org/bots/api
+
+## AWS > Lambda
 - select region (Lambda region-specific!) e.g. Ireland
 - "Create function"
   - "Container image"
@@ -75,13 +78,17 @@ related projects: Sentimental, snelbestel
   - "Function URL"
       - "Create", "Auth type"="NONE", everything else defaults
   - "Environment variables" - in main.py, set all os.environ variables under "Environment variables", for this sample:
-    - function_url, from previous step
-    - telegram_token, cryptocom_key, cryptocom_secret
-  
-
+    - function_url, from "Function URL" previous step
+    - telegram_token, from Telegram step
+    
 ## lambda_function.py
+- for this sample, test via Telegram - send message to bot, expect same message as reply!
 - Docker build and test locally:
   - (optional) download/open Docker desktop to manage Docker images
   - run in directory with Dockerfile: `docker build --platform linux/amd64 -t docker-image:sentimental .`
   - run built Docker image: `docker run -p 9000:8080 docker-image:sentimental`
-  - 
+  - (Windows) in Powershell, `Invoke-WebRequest -Uri "http://localhost:9000/2015-03-31/functions/function/invocations" -Method Post -Body '{}' -ContentType "application/json"`
+  - check "StatusCode"=200, "Content"=<what lambda_function.handler returns>
+  - (optional) delete container and image in Docker desktop
+- after triggering Docker build, upload image to ECR and updating Lambda:
+  - test Lambda using `aws lambda invoke --function-name sentimental response.json`

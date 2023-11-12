@@ -1,4 +1,7 @@
 name: Lambda CI/CD
+# on: pull_request
+#on:
+#  push:
 on:
   pull_request:
     branches:
@@ -14,12 +17,12 @@ jobs:
       - name: Checkout Repository # must checkout!
         uses: actions/checkout@v3
 
-      - name: Setup python
-        uses: actions/setup-python@v4
-      - name: Change directory, Build environment
-        run: |
-          cd Lambda
-          pip install --no-cache-dir -r requirements.txt
+#      - name: Setup python
+#        uses: actions/setup-python@v4
+#      - name: Change directory, Build environment
+#        run: |
+#          cd Lambda
+#          pip install --no-cache-dir -r requirements.txt
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -44,6 +47,36 @@ jobs:
           echo "$ecr_registry"
           docker build -t $ecr_registry/$ecr_repository:$image_tag .
           echo "Pushing image to ECR..."
+          echo "image_uri=$ecr_registry/$ecr_repository:$image_tag" >> "$GITHUB_OUTPUT" # variable to update Lambda, next step
           docker push $ecr_registry/$ecr_repository:$image_tag
           # if push keep retrying and fails, check IAM Policy https://github.com/aws-actions/amazon-ecr-login#docker-credentials
-          echo "image=$ecr_registry/$ecr_repository:$image_tag" >> "$GITHUB_OUTPUT"
+
+      - name: Update Lambda's Docker image
+          id: update-lambda
+          env:
+            image_uri: ${{ steps.build-push-ecr.outputs.image_uri }}
+          run: |
+            echo "Updating lambda to use image $image_uri"
+            aws lambda update-function-code --function-name sentimental --image-uri $image_uri
+
+# DEPRECATED: old method of running Lambda from .zip file (with dependencies/layers nightmare), deprecate in favour of using Docker images
+#Lambda:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout Repository # must checkout!
+#        uses: actions/checkout@v2
+
+#      - name: Install dependencies in Lambda folder
+#        working-directory: ./Lambda
+#        run: |
+#          pip install -r requirements.txt --target .
+#          zip -r lambda.zip .
+#
+#      - name: Deploy Lambda
+#        uses: appleboy/lambda-action@master
+#        with:
+#          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          aws_region: eu-west-2
+#          function_name: sentimental
+#          zip_file: Lambda/lambda.zip
