@@ -1,6 +1,8 @@
 # Lambda - template
-Lambda that receives Telegram message and replies "oke".
-Projects: Sentimental, snelbestel
+purpose: Lambda receives Telegram message from chat, then replies "oke".
+reference: https://docs.aws.amazon.com/lambda/latest/dg/python-image.html#python-image-instructions
+
+related projects: Sentimental, snelbestel
 
 ## AWS > ECR
 - select region (region-specific!) e.g. Ireland
@@ -61,6 +63,7 @@ Projects: Sentimental, snelbestel
 
 ## Dockerfile
 - create
+- push cicd_pr.yml, and Dockerfile etc. to create intial ECR image, to create Lambda (which needs Container image)
 
 ## AWS >>> Lambda
 - select region (Lambda region-specific!) e.g. Ireland
@@ -68,6 +71,17 @@ Projects: Sentimental, snelbestel
   - "Container image"
   - Architecture = default
   - ExecutionRole = "Create a new role with basic Lambda permissions"
+- "Configuration"
+  - "Function URL"
+      - "Create", "Auth type"="NONE", everything else defaults
+  - "Environment variables" - in main.py, set all os.environ variables under "Environment variables", for this sample:
+    - function_url, from previous step
+    - telegram_token, cryptocom_key, cryptocom_secret
+  
 
 ## lambda_function.py
-
+- Docker build and test locally:
+  - (optional) download/open Docker desktop to manage Docker images
+  - run in directory with Dockerfile: `docker build --platform linux/amd64 -t docker-image:sentimental .`
+  - run built Docker image: `docker run -p 9000:8080 docker-image:sentimental`
+  - 
